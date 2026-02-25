@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Ada Realty</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --white: #FFFFFF;
+    --champagne: #C9A84C;
+    --champagne-light: #E8D5A3;
+    --champagne-pale: #F5F0E8;
+    --charcoal: #1E1E1E;
+    --sand: #E8DDD0;
+    --text-muted: #7A7060;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--white); color: var(--charcoal); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 60px;
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--sand);
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; letter-spacing: 0.04em; color: var(--charcoal); text-decoration: none; }
+  .nav-logo span { color: var(--champagne); }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a { font-size: 13px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--champagne); }
+  .nav-cta { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); background: var(--champagne); border: none; padding: 12px 28px; cursor: pointer; transition: background 0.3s; }
+  .nav-cta:hover { background: var(--charcoal); }
+
+  /* HAMBURGER */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--charcoal); transition: all 0.3s; transform-origin: center; }
+  .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(16px); padding: 32px 24px; border-bottom: 1px solid var(--sand); z-index: 99; flex-direction: column; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; padding: 16px 0; border-bottom: 1px solid var(--sand); transition: color 0.3s; }
+  .mobile-menu a:last-of-type { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--champagne); }
+  .mobile-cta { margin-top: 24px; padding: 16px; background: var(--champagne); color: var(--white); font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; border: none; cursor: pointer; }
+
+  /* PAGE HERO */
+  .page-hero {
+    padding-top: 72px;
+    height: 52vh;
+    min-height: 360px;
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    overflow: hidden;
+  }
+  .page-hero-bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(rgba(20,20,20,0.72), rgba(20,20,20,0.72)),
+      url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80') center/cover no-repeat;
+  }
+  .page-hero-content { position: relative; color: var(--white); }
+  .breadcrumb { font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--champagne-light); margin-bottom: 16px; }
+  .breadcrumb a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  .breadcrumb a:after { content: ' /'; margin: 0 8px; }
+  .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 64px); font-weight: 600; line-height: 1.15; }
+  .page-hero h1 em { font-style: italic; color: var(--champagne-light); }
+
+  /* SHARED */
+  .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .section-label::before { content: ''; width: 30px; height: 1px; background: var(--champagne); }
+  .section-label span { font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--champagne); font-weight: 400; }
+  .section-label.center { justify-content: center; }
+  .section-label.center::before { display: none; }
+  .section-label.center::after { content: ''; width: 30px; height: 1px; background: var(--champagne); }
+
+  .btn-primary { padding: 16px 40px; background: var(--champagne); color: var(--white); font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; }
+  .btn-primary:hover { background: var(--charcoal); }
+  .btn-outline-dark { padding: 16px 40px; background: transparent; color: var(--charcoal); font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; border: 1px solid var(--charcoal); cursor: pointer; transition: all 0.3s; }
+  .btn-outline-dark:hover { background: var(--charcoal); color: var(--white); }
+
+  /* INTRO SECTION */
+  .intro {
+    padding: 100px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .intro-image-wrap { position: relative; }
+  .intro-image-placeholder {
+    width: 100%; aspect-ratio: 3/4;
+    background: linear-gradient(145deg, var(--sand), var(--champagne-pale));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 16px; color: var(--text-muted); letter-spacing: 0.08em;
+  }
+  .intro-accent {
+    position: absolute; bottom: -24px; left: -24px;
+    width: 60%; height: 60%;
+    border: 2px solid var(--champagne);
+    z-index: -1;
+  }
+  .intro-badge {
+    position: absolute; top: 24px; right: -16px;
+    background: var(--champagne);
+    color: var(--white);
+    padding: 20px 24px;
+    text-align: center;
+  }
+  .intro-badge .num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 600; line-height: 1; display: block; }
+  .intro-badge .lbl { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; display: block; margin-top: 4px; opacity: 0.85; }
+
+  .intro-content h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 44px); font-weight: 600; line-height: 1.25; margin-bottom: 24px; }
+  .intro-content h2 em { font-style: italic; color: var(--champagne); }
+  .intro-content p { font-size: 15px; line-height: 1.9; color: var(--text-muted); margin-bottom: 20px; font-weight: 300; }
+  .intro-buttons { display: flex; gap: 16px; margin-top: 36px; flex-wrap: wrap; }
+
+  /* VALUES */
+  .values { background: var(--charcoal); padding: 100px 60px; }
+  .values-inner { max-width: 1200px; margin: 0 auto; }
+  .values h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3.5vw, 46px); font-weight: 600; color: var(--white); text-align: center; margin-bottom: 64px; }
+  .values h2 em { font-style: italic; color: var(--champagne-light); }
+  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .value-item { padding: 48px 40px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); transition: background 0.3s; }
+  .value-item:hover { background: rgba(201,168,76,0.07); }
+  .value-num { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 400; color: rgba(201,168,76,0.25); line-height: 1; margin-bottom: 20px; }
+  .value-item h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--white); margin-bottom: 12px; }
+  .value-item p { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.45); font-weight: 300; }
+
+  /* EXPERIENCE TIMELINE */
+  .timeline { padding: 100px 60px; max-width: 900px; margin: 0 auto; }
+  .timeline-header { text-align: center; margin-bottom: 64px; }
+  .timeline-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3.5vw, 46px); font-weight: 600; margin-bottom: 12px; }
+  .timeline-header h2 em { font-style: italic; color: var(--champagne); }
+  .timeline-divider { width: 50px; height: 1px; background: var(--champagne); margin: 16px auto 0; }
+
+  .timeline-list { position: relative; padding-left: 48px; }
+  .timeline-list::before { content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px; width: 1px; background: var(--sand); }
+
+  .timeline-item { position: relative; margin-bottom: 48px; }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-dot { position: absolute; left: -44px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--white); border: 2px solid var(--champagne); }
+  .timeline-year { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--champagne); margin-bottom: 8px; font-weight: 500; }
+  .timeline-item h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+  .timeline-item p { font-size: 14px; line-height: 1.8; color: var(--text-muted); font-weight: 300; }
+
+  /* CREDENTIALS */
+  .credentials { background: var(--champagne-pale); padding: 100px 60px; }
+  .credentials-inner { max-width: 1200px; margin: 0 auto; }
+  .credentials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 56px; }
+  .cred-card { background: var(--white); padding: 40px 32px; border-bottom: 3px solid transparent; transition: border-color 0.3s; }
+  .cred-card:hover { border-color: var(--champagne); }
+  .cred-icon { font-size: 28px; margin-bottom: 16px; }
+  .cred-card h3 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+  .cred-card p { font-size: 13px; line-height: 1.7; color: var(--text-muted); font-weight: 300; }
+
+  /* PERSONAL */
+  .personal { padding: 100px 60px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .personal-content h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 44px); font-weight: 600; line-height: 1.25; margin-bottom: 24px; }
+  .personal-content h2 em { font-style: italic; color: var(--champagne); }
+  .personal-content p { font-size: 15px; line-height: 1.9; color: var(--text-muted); margin-bottom: 20px; font-weight: 300; }
+  .personal-quote { border-left: 3px solid var(--champagne); padding: 20px 28px; margin: 32px 0; background: var(--champagne-pale); }
+  .personal-quote p { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; color: var(--charcoal); margin: 0; line-height: 1.6; }
+  .personal-image { width: 100%; aspect-ratio: 1/1; background: linear-gradient(135deg, var(--sand), var(--champagne-pale)); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 16px; color: var(--text-muted); }
+
+  /* CTA */
+  .cta-section { position: relative; padding: 120px 60px; text-align: center; overflow: hidden; }
+  .cta-bg { position: absolute; inset: 0; background: linear-gradient(rgba(30,30,30,0.82), rgba(30,30,30,0.82)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80') center/cover no-repeat; }
+  .cta-content { position: relative; color: var(--white); max-width: 600px; margin: 0 auto; }
+  .cta-content h2 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 4vw, 50px); font-weight: 600; line-height: 1.2; margin-bottom: 20px; }
+  .cta-content h2 em { font-style: italic; color: var(--champagne-light); }
+  .cta-content p { font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 44px; font-weight: 300; line-height: 1.7; }
+
+  /* FOOTER */
+  footer { background: var(--charcoal); padding: 60px 60px 30px; }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 32px; }
+  .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8; font-weight: 300; max-width: 260px; margin-top: 16px; }
+  .footer-col h4 { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--champagne); margin-bottom: 20px; font-weight: 500; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.3s; font-weight: 300; }
+  .footer-col ul li a:hover { color: var(--champagne); }
+  .social-links { display: flex; gap: 16px; }
+  .social-link { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; transition: all 0.3s; cursor: pointer; text-decoration: none; color: rgba(255,255,255,0.5); font-size: 12px; }
+  .social-link:hover { border-color: var(--champagne); color: var(--champagne); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+  .footer-bottom p { font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.08em; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    nav { padding: 20px 32px; }
+    .intro, .personal { padding: 80px 32px; gap: 48px; }
+    .values, .timeline, .credentials, .cta-section { padding: 80px 32px; }
+    .footer-top { gap: 40px; }
+    footer { padding: 60px 32px 28px; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 18px 24px; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+
+    .intro, .personal { grid-template-columns: 1fr; padding: 72px 24px; gap: 40px; }
+    .intro-accent { display: none; }
+    .intro-badge { right: 16px; }
+    .intro-buttons { flex-direction: column; }
+    .intro-buttons button { width: 100%; }
+
+    .values { padding: 72px 24px; }
+    .values-grid { grid-template-columns: 1fr; gap: 16px; }
+
+    .timeline { padding: 72px 24px; }
+
+    .credentials { padding: 72px 24px; }
+    .credentials-grid { grid-template-columns: 1fr; gap: 16px; }
+
+    .cta-section { padding: 80px 24px; }
+
+    footer { padding: 48px 24px 24px; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="realtor-homepage.html" class="nav-logo">Ada<span>.</span>Realty</a>
+  <ul class="nav-links">
+    <li><a href="realtor-homepage.html">Home</a></li>
+    <li><a href="#" class="active">About</a></li>
+    <li><a href="realtor-listings.html">Listings</a></li>
+    <li><a href="realtor-contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-cta">Book Consultation</button>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="realtor-homepage.html">Home</a>
+  <a href="#">About</a>
+  <a href="realtor-listings.html">Listings</a>
+  <a href="realtor-contact.html">Contact</a>
+  <button class="mobile-cta">Book Consultation</button>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="realtor-homepage.html">Home</a> About Me</div>
+    <h1>The Person Behind<br><em>Every Deal</em></h1>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section style="background: var(--white);">
+  <div class="intro">
+    <div class="intro-image-wrap">
+      <div class="intro-image-placeholder">Professional Photo</div>
+      <div class="intro-accent"></div>
+      <div class="intro-badge">
+        <span class="num">7+</span>
+        <span class="lbl">Years in<br>Real Estate</span>
+      </div>
+    </div>
+    <div class="intro-content">
+      <div class="section-label"><span>My Story</span></div>
+      <h2>I'm Ada — Your<br><em>Lagos Real Estate</em><br>Partner</h2>
+      <p>I didn't fall into real estate by accident. After watching too many families struggle to find homes they truly deserved, I made it my mission to change that experience — one transaction at a time.</p>
+      <p>Over the past 7 years, I've helped over 50 clients buy, sell and invest across Lagos' most sought-after neighbourhoods. My approach is simple: I listen first, then I deliver.</p>
+      <p>Whether you're a first-time buyer navigating the process for the very first time, or a seasoned investor expanding your portfolio, you deserve an agent who is as invested in the outcome as you are. That's exactly who I am.</p>
+      <div class="intro-buttons">
+        <button class="btn-primary">View My Listings</button>
+        <button class="btn-outline-dark">Get In Touch</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="values-inner">
+    <h2>What I <em>Stand For</em></h2>
+    <div class="values-grid">
+      <div class="value-item">
+        <div class="value-num">01</div>
+        <h3>Transparency</h3>
+        <p>No hidden fees. No half-truths. I tell my clients exactly what they need to know, even when it's not what they want to hear. Honest guidance builds lasting relationships.</p>
+      </div>
+      <div class="value-item">
+        <div class="value-num">02</div>
+        <h3>Excellence</h3>
+        <p>Good enough is never enough. Every listing is presented at its best, every negotiation is handled with precision, and every client receives a premium experience.</p>
+      </div>
+      <div class="value-item">
+        <div class="value-num">03</div>
+        <h3>Care</h3>
+        <p>Behind every transaction is a family, a dream, or a future. I never lose sight of that. My clients are not just deals — they are people I genuinely want to see thrive.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline">
+  <div class="timeline-header">
+    <div class="section-label center"><span>My Journey</span></div>
+    <h2>Building a Career<br>Built on <em>Trust</em></h2>
+    <div class="timeline-divider"></div>
+  </div>
+  <div class="timeline-list">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-year">2017</div>
+      <h3>Started in Real Estate</h3>
+      <p>Joined a leading Lagos property firm as a junior agent. Quickly developed a reputation for going above and beyond for every client, no matter the size of the deal.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-year">2019</div>
+      <h3>Top Agent Recognition</h3>
+      <p>Recognised as one of the top-performing agents in the firm, closing over 15 transactions in a single year across Lekki, VI and Ikoyi.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-year">2021</div>
+      <h3>Launched Independent Practice</h3>
+      <p>Took the bold step to go independent, bringing my network and expertise directly to clients without the middleman. Built my brand from the ground up on referrals and trust.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-year">2024 — Present</div>
+      <h3>50+ Happy Clients and Counting</h3>
+      <p>Today I serve buyers, sellers and investors across Lagos, with a growing portfolio of luxury and mid-range properties and a client satisfaction rate of 100%.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="credentials">
+  <div class="credentials-inner">
+    <div class="section-label center"><span>Credentials</span></div>
+    <h2 style="font-family:'Playfair Display',serif; font-size:clamp(28px,3.5vw,46px); font-weight:600; text-align:center; margin-top:8px;">Qualified. <em style="font-style:italic;color:var(--champagne);">Certified. Trusted.</em></h2>
+    <div class="credentials-grid">
+      <div class="cred-card">
+        <div class="cred-icon">🏛️</div>
+        <h3>Licensed Real Estate Agent</h3>
+        <p>Fully licensed and registered with the Nigerian Institution of Estate Surveyors and Valuers (NIESV).</p>
+      </div>
+      <div class="cred-card">
+        <div class="cred-icon">🎓</div>
+        <h3>BSc. Estate Management</h3>
+        <p>Graduate of Estate Management from the University of Lagos with a strong academic foundation in property and valuation.</p>
+      </div>
+      <div class="cred-card">
+        <div class="cred-icon">🏆</div>
+        <h3>Award-Winning Agent</h3>
+        <p>Recognised for excellence in client service and transaction volume by the Lagos Real Estate Association two years running.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAL -->
+<section style="background: var(--white);">
+  <div class="personal">
+    <div class="personal-content">
+      <div class="section-label"><span>Beyond the Business</span></div>
+      <h2>More Than Just<br>an <em>Agent</em></h2>
+      <p>When I'm not helping clients find their perfect property, you'll find me exploring Lagos' vibrant food scene, mentoring young women in business, or spending quality time with my family.</p>
+      <p>I believe that the best agents are the ones who are truly rooted in their community. Lagos is not just where I work — it's where I live, love and belong. That depth of connection is what makes me different.</p>
+      <div class="personal-quote">
+        <p>"Real estate is not just about property. It's about helping people find where they belong."</p>
+      </div>
+    </div>
+    <div class="personal-image">Lifestyle Photo</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="cta-content">
+    <div class="section-label center" style="margin-bottom:20px;"><span style="color:var(--champagne-light);">Work With Me</span></div>
+    <h2>Ready to Start Your<br><em>Property Journey?</em></h2>
+    <p>Whether you're buying your first home or your fifth investment property, I'm here to make it seamless and stress-free. Let's talk.</p>
+    <button class="btn-primary">Book a Free Consultation</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="realtor-homepage.html" class="nav-logo" style="color:var(--white); display:block;">Ada<span style="color:var(--champagne);">.</span>Realty</a>
+      <p>Premium real estate services across Lagos. Your dream property is one conversation away.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="realtor-homepage.html">Home</a></li>
+        <li><a href="#">About Me</a></li>
+        <li><a href="realtor-listings.html">Listings</a></li>
+        <li><a href="realtor-contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <div class="social-links">
+        <a class="social-link" href="#">in</a>
+        <a class="social-link" href="#">ig</a>
+        <a class="social-link" href="#">wa</a>
+      </div>
+      <p style="font-size:13px; color:rgba(255,255,255,0.4); margin-top:20px; font-weight:300;">hello@adarealty.com<br>+234 800 000 0000</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Ada Realty. All Rights Reserved.</p>
+    <p>Designed with care in Lagos, Nigeria</p>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+</script>
+</body>
+</html>
