@@ -161,22 +161,22 @@
 
 <!-- NAV -->
 <nav>
-  <a href="realtor-homepage.html" class="nav-logo">Ada<span>.</span>Realty</a>
+  <a href="/ada-realty/realtor-homepage.html" class="nav-logo">Ada<span>.</span>Realty</a>
   <ul class="nav-links">
-    <li><a href="realtor-homepage.html">Home</a></li>
-    <li><a href="realtor-about.html">About</a></li>
+    <li><a href="/ada-realty/realtor-homepage.html">Home</a></li>
+    <li><a href="/ada-realty/realtor-about.html">About</a></li>
     <li><a href="#" class="active">Listings</a></li>
-    <li><a href="realtor-contact.html">Contact</a></li>
+    <li><a href="/ada-realty/realtor-contact.html">Contact</a></li>
   </ul>
   <button class="nav-cta">Book Consultation</button>
   <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="realtor-homepage.html">Home</a>
-  <a href="realtor-about.html">About</a>
+  <a href="/ada-realty/realtor-homepage.html">Home</a>
+  <a href="/ada-realty/realtor-about.html">About</a>
   <a href="#">Listings</a>
-  <a href="realtor-contact.html">Contact</a>
+  <a href="/ada-realty/realtor-contact.html">Contact</a>
   <button class="mobile-cta">Book Consultation</button>
 </div>
 
@@ -184,7 +184,7 @@
 <section class="page-hero">
   <div class="page-hero-bg"></div>
   <div class="page-hero-content">
-    <div class="breadcrumb"><a href="realtor-homepage.html">Home</a> Listings</div>
+    <div class="breadcrumb"><a href="/ada-realty/realtor-homepage.html">Home</a> Listings</div>
     <h1>Curated <em>Properties</em><br>Across Lagos</h1>
   </div>
 </section>
@@ -370,16 +370,16 @@
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <a href="realtor-homepage.html" class="nav-logo" style="color:var(--white);">Ada<span style="color:var(--champagne);">.</span>Realty</a>
+      <a href="/ada-realty/realtor-homepage.html" class="nav-logo" style="color:var(--white);">Ada<span style="color:var(--champagne);">.</span>Realty</a>
       <p>Premium real estate services across Lagos. Your dream property is one conversation away.</p>
     </div>
     <div class="footer-col">
       <h4>Quick Links</h4>
       <ul>
-        <li><a href="realtor-homepage.html">Home</a></li>
-        <li><a href="realtor-about.html">About Me</a></li>
+        <li><a href="/ada-realty/realtor-homepage.html">Home</a></li>
+        <li><a href="/ada-realty/realtor-about.html">About Me</a></li>
         <li><a href="#">Listings</a></li>
-        <li><a href="realtor-contact.html">Contact</a></li>
+        <li><a href="/ada-realty/realtor-contact.html">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -389,7 +389,7 @@
         <a class="social-link" href="#">ig</a>
         <a class="social-link" href="#">wa</a>
       </div>
-      <p style="font-size:13px; color:rgba(255,255,255,0.4); margin-top:20px; font-weight:300;">hello@adarealty.com<br>+234 800 000 0000</p>
+      <p style="font-size:13px; color:rgba(255,255,255,0.4); margin-top:20px; font-weight:300;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e8808d848487a8898c899a8d89849c91c68b8785">[email&#160;protected]</a><br>+234 800 000 0000</p>
     </div>
   </div>
   <div class="footer-bottom">
@@ -398,18 +398,8 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
   hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-  });
-
-  function setFilter(btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  }
-</script>
-</body>
-</html>
+    hamburger.classList.toggle('open')
