@@ -143,8 +143,8 @@
   .faq-question.open { color: var(--champagne); }
   .faq-arrow { font-size: 18px; transition: transform 0.3s; color: var(--champagne); flex-shrink: 0; }
   .faq-question.open .faq-arrow { transform: rotate(45deg); }
-  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
-  .faq-answer.open { max-height: 200px; }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding 0.3s; }
+  .faq-answer.open { max-height: 400px; }
   .faq-answer p { padding: 0 28px 22px; font-size: 14px; line-height: 1.85; color: var(--text-muted); font-weight: 300; }
 
   /* FOOTER */
@@ -226,6 +226,9 @@
     <h2>I'd Love to<br>Hear From <em>You</em></h2>
     <p>Whether you're ready to buy, sell or just exploring your options — my door is always open. Fill in the form or reach out directly through any of the channels below.</p>
 
+    <div style="margin-bottom: 36px;">
+      <img src="agent2.png" style="width:100%;max-width:320px;aspect-ratio:4/3;object-fit:cover;object-position:top;display:block;" alt="Ada - Your Lagos Realtor">
+    </div>
     <div class="contact-details">
       <div class="contact-detail">
         <div class="detail-icon">📞</div>
@@ -348,7 +351,7 @@
           <span class="faq-arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>The first step is a simple conversation. Reach out to me and we'll discuss your goals, budget and preferred locations. From there I'll curate a list of suitable properties and guide you through every step — from viewings all the way to signing.</p>
+          <p>It starts with a simple conversation. Reach out to me via the contact form, WhatsApp or phone and we will discuss your goals, budget and preferred locations. From there I will personally curate a shortlist of suitable properties and arrange viewings at your convenience. I guide you through every step from the first viewing all the way to collecting your keys.</p>
         </div>
       </div>
       <div class="faq-item">
@@ -357,7 +360,7 @@
           <span class="faq-arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>I primarily focus on premium areas including Lekki, Victoria Island, Ikoyi, Banana Island, GRA Ikeja and Oniru Estate. However I also have a strong network across other parts of Lagos and can assist with a wide range of locations.</p>
+          <p>I specialise in Lagos' most sought-after neighbourhoods including Lekki Phase 1 and 2, Victoria Island, Ikoyi, Banana Island, Oniru Estate and GRA Ikeja. I also have an extensive network that covers emerging areas like Ajah, Chevron and Sangotedo for clients looking for value-driven investments. If you have a specific location in mind that isn't listed, reach out and I will do my best to help.</p>
         </div>
       </div>
       <div class="faq-item">
@@ -366,7 +369,16 @@
           <span class="faq-arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>Initial consultations are completely free. My fees are only charged upon the successful completion of a transaction, so you can explore your options with zero financial pressure upfront.</p>
+          <p>No. Initial consultations are completely free with no obligation whatsoever. I believe you should be able to explore your options and ask all your questions before committing to anything. My professional fees only apply upon the successful completion of a transaction and will always be clearly communicated upfront so there are never any surprises.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How long does it typically take to buy or sell a property?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Timelines vary depending on the type of transaction and the parties involved. For buyers, finding the right property can take anywhere from two weeks to two months depending on your requirements. For sellers, most of my listings receive serious enquiries within the first two weeks when priced correctly and marketed well. Legal documentation and completion typically takes an additional two to four weeks. I always keep you informed every step of the way so there are no delays on my end.</p>
         </div>
       </div>
       <div class="faq-item">
@@ -375,7 +387,7 @@
           <span class="faq-arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>Absolutely. I have an active network of qualified buyers and use targeted digital marketing to ensure your property reaches the right audience fast. Most of my listings receive serious enquiries within the first two weeks.</p>
+          <p>Absolutely. I have an active network of qualified and ready buyers across Lagos and beyond, including diaspora Nigerians looking to invest back home. I use professional photography, targeted social media promotion and direct outreach to make sure your property reaches the right audience fast. Most of my listings attract serious enquiries within the first two weeks of listing.</p>
         </div>
       </div>
       <div class="faq-item">
@@ -384,7 +396,16 @@
           <span class="faq-arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>Yes. Some of my best properties never appear online. Get in touch directly and tell me exactly what you're looking for — I'll check my exclusive network and connect you with options you won't find anywhere else.</p>
+          <p>Yes and this is one of the biggest advantages of working with me. Some of my finest properties never appear online and are only available through my personal network. These exclusive listings are shared directly with serious buyers who have expressed clear interest. If you are looking for something specific that you haven't found elsewhere, get in touch and describe exactly what you want. I will tap into my network and find options you won't find anywhere else.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          I live abroad. Can you help me buy property remotely?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely. I work with diaspora clients regularly and have a streamlined process for remote transactions. I conduct video tours of shortlisted properties, handle all on-ground checks and due diligence on your behalf, and keep you fully updated via WhatsApp and email throughout. Many of my international clients have successfully purchased properties in Lagos without stepping foot in Nigeria. You can trust that your investment is in safe hands.</p>
         </div>
       </div>
     </div>
