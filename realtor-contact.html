@@ -44,7 +44,7 @@
 
   /* PAGE HERO */
   .page-hero { padding-top: 72px; height: 48vh; min-height: 320px; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
-  .page-hero-bg { position: absolute; inset: 0; background: linear-gradient(rgba(20,20,20,0.72), rgba(20,20,20,0.72)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80') center/cover no-repeat; }
+  .page-hero-bg { position: absolute; inset: 0; background: linear-gradient(rgba(20,20,20,0.72), rgba(20,20,20,0.72)), url('img3.jpg') center/cover no-repeat; }
   .page-hero-content { position: relative; color: var(--white); }
   .breadcrumb { font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--champagne-light); margin-bottom: 16px; }
   .breadcrumb a { color: rgba(255,255,255,0.5); text-decoration: none; }
@@ -196,7 +196,7 @@
     <li><a href="/ada-realty/realtor-listings.html">Listings</a></li>
     <li><a href="#" class="active">Contact</a></li>
   </ul>
-  <button class="nav-cta">Book Consultation</button>
+  <a href="/ada-realty/realtor-contact.html" class="nav-cta" style="text-decoration:none;">Book Consultation</a>
   <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
 </nav>
 
@@ -205,7 +205,7 @@
   <a href="/ada-realty/realtor-about.html">About</a>
   <a href="/ada-realty/realtor-listings.html">Listings</a>
   <a href="/ada-realty/realtor-contact.html">Contact</a>
-  <button class="mobile-cta">Book Consultation</button>
+  <a href="/ada-realty/realtor-contact.html" class="mobile-cta" style="text-decoration:none;display:block;text-align:center;">Book Consultation</a>
 </div>
 
 <!-- PAGE HERO -->
@@ -410,9 +410,21 @@
     <div class="footer-col">
       <h4>Connect</h4>
       <div class="social-links">
-        <a class="social-link" href="#">in</a>
-        <a class="social-link" href="#">ig</a>
-        <a class="social-link" href="#">wa</a>
+        <a class="social-link" href="#" aria-label="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+        <a class="social-link" href="#" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a class="social-link" href="https://wa.me/2348000000000" aria-label="WhatsApp">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.522 5.845L.057 23.885l6.195-1.424A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.655-.502-5.178-1.378l-.37-.218-3.838.882.916-3.741-.241-.386A9.937 9.937 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+          </svg>
+        </a>
       </div>
       <p style="font-size:13px; color:rgba(255,255,255,0.4); margin-top:20px; font-weight:300;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e189848d8d8ea18085809384808d9598cf828e8c">[email&#160;protected]</a><br>+234 800 000 0000</p>
     </div>
@@ -422,22 +434,15 @@
     <p>Designed with care in Lagos, Nigeria</p>
   </div>
 </footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Hamburger
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-  });
-
-  // Form submit
-  function submitForm() {
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobileMenu");
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener("click", function() {
+      hamburger.classList.toggle("open");
+      mobileMenu.classList.toggle("open");
+    });
   }
-
-  // FAQ accordion
-  function toggleFaq(btn) {
-    const 
+</script>
+</body>
+</html>
