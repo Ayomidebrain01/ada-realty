@@ -956,6 +956,26 @@
     .hero-sub { font-size: 14px; }
     .stat-number { font-size: 34px; }
   }
+
+  /* FAQ SECTION */
+  .faq-section { background: var(--champagne-pale); padding: 100px 60px; }
+  .faq-inner { max-width: 800px; margin: 0 auto; }
+  .faq-header { text-align: center; margin-bottom: 56px; }
+  .faq-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 600; margin-bottom: 12px; }
+  .faq-header h2 em { font-style: italic; color: var(--champagne); }
+  .faq-divider { width: 50px; height: 1px; background: var(--champagne); margin: 16px auto 0; }
+  .faq-list { display: flex; flex-direction: column; gap: 2px; }
+  .faq-item { background: var(--white); overflow: hidden; }
+  .faq-question { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 22px 28px; font-size: 15px; font-weight: 400; color: var(--charcoal); background: none; border: none; cursor: pointer; text-align: left; transition: color 0.3s; gap: 16px; }
+  .faq-question:hover { color: var(--champagne); }
+  .faq-question.open { color: var(--champagne); }
+  .faq-arrow { font-size: 18px; transition: transform 0.3s; color: var(--champagne); flex-shrink: 0; }
+  .faq-question.open .faq-arrow { transform: rotate(45deg); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+  .faq-answer.open { max-height: 400px; }
+  .faq-answer p { padding: 0 28px 22px; font-size: 14px; line-height: 1.85; color: var(--text-muted); font-weight: 300; }
+  @media (max-width: 1024px) { .faq-section { padding: 80px 32px; } }
+  @media (max-width: 768px) { .faq-section { padding: 64px 24px; } }
 </style>
 </head>
 <body>
@@ -991,6 +1011,20 @@
     hamburger.classList.toggle('open');
     mobileMenu.classList.toggle('open');
   });
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = btn.classList.contains("open");
+    document.querySelectorAll(".faq-question").forEach(function(q) {
+      q.classList.remove("open");
+      q.nextElementSibling.classList.remove("open");
+    });
+    if (!isOpen) {
+      btn.classList.add("open");
+      answer.classList.add("open");
+    }
+  }
 </script>
 
 <!-- HERO -->
@@ -1184,6 +1218,74 @@
 </section>
 
 <!-- CTA -->
+
+<!-- FAQ SECTION -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <div class="section-label" style="justify-content:center;"><span>Got Questions?</span></div>
+      <h2>Frequently Asked <em>Questions</em></h2>
+      <div class="faq-divider"></div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How do I start the process of buying a property in Lagos?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>It starts with a simple conversation. Reach out to me via the contact form, WhatsApp or phone and we will discuss your goals, budget and preferred locations. From there I will personally curate a shortlist of suitable properties and arrange viewings at your convenience. I guide you through every step from the first viewing all the way to collecting your keys.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What areas in Lagos do you cover?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>I specialise in Lagos' most sought-after neighbourhoods including Lekki Phase 1 and 2, Victoria Island, Ikoyi, Banana Island, Oniru Estate and GRA Ikeja. I also have an extensive network that covers emerging areas like Ajah, Chevron and Sangotedo for clients looking for value-driven investments.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do you charge a consultation fee?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>No. Initial consultations are completely free with no obligation whatsoever. I believe you should be able to explore your options and ask all your questions before committing to anything. My professional fees only apply upon the successful completion of a transaction and will always be clearly communicated upfront so there are never any surprises.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How long does it typically take to buy or sell a property?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Timelines vary depending on the type of transaction. For buyers, finding the right property can take anywhere from two weeks to two months depending on your requirements. For sellers, most of my listings receive serious enquiries within the first two weeks when priced correctly. Legal documentation and completion typically takes an additional two to four weeks.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Can you help me sell my property quickly?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely. I have an active network of qualified and ready buyers across Lagos and beyond, including diaspora Nigerians looking to invest back home. I use professional photography, targeted social media promotion and direct outreach to make sure your property reaches the right audience fast.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          I live abroad. Can you help me buy property remotely?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely. I work with diaspora clients regularly and have a streamlined process for remote transactions. I conduct video tours of shortlisted properties, handle all on-ground checks and due diligence on your behalf, and keep you fully updated via WhatsApp and email throughout. Many of my international clients have successfully purchased properties in Lagos without stepping foot in Nigeria.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="cta-section">
   <div class="cta-bg"></div>
   <div class="cta-content">
